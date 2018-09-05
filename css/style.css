@@ -90,7 +90,7 @@ h6 {
 	******************************/
 	sup, sub {vertical-align: baseline;position: relative;top: -0.4em;}
 	sub { top: 0.4em; }
-	
+
 	/*  lists
 	******************************/
 	ul, ol {padding:0;margin:0;}
@@ -105,7 +105,7 @@ h6 {
 	th {padding:3px; font-weight:bold;color:#344b3b;}
 	tr {margin:0 0 5px 0;padding:3px;}
 	td {padding:5px;margin:0 1px;}
-	
+
 	/*  horizontal lines
 	******************************/
 	hr {border-bottom: 1px solid #C1C1CB;margin:5px 0;padding:0;height:2px;width:100%; margin-bottom:15px;}
@@ -181,6 +181,7 @@ h6 {
 .navigation ul{
 	margin:0px;
 	padding:0px;
+	text-align: center;
 }
 
 .navigation ul li{
@@ -190,11 +191,13 @@ h6 {
 	font-size:15px;
 	list-style-type:none;
 	border-right:#868B8F dotted 2px;
+	text-align: center;
 }
 
 .navigation ul li a{
 	color:#03314b;
 	text-decoration:none;
+	text-align: center;
 }
 
 .navigation ul li a:hover{
@@ -214,8 +217,9 @@ h6 {
 }
 
 #page_content .right_section{
-	width:735px;
-	float:right;
+	/*width:735px;*/
+	float:left;
+	padding-left: 20px;
 }
 
 #page_content .right_section .top_content{
