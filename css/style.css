@@ -140,35 +140,47 @@ h6 {
 }
 
 #header .top_banner{
-	background:url(../images/header.jpg) no-repeat left top;
+	background:url(../images/headerg.png) no-repeat left top;
 	height:175px;
-	padding:75px 95px 0 295px;
+	padding:64px 95px 0 40px;
 	border:#496066 solid 1px;
 }
 
+
 #header h1{
 	font-size:32px;
-	color:#000000;
+	/*color:#003B4C;*/
+	color:#FFFFFF;
 	margin:0px;
 	font-family:Georgia, "Times New Roman", Times, serif;
 	font-weight:bold;
-	padding:0px 0px 10px;
+	padding:5px 0px 5px;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	margin-top: 6px;
 }
 
 #header h1 a {
-	color:#000000;
+	color:#FFFFFF;
 	text-decoration: none;
 }
 
-#header h1 a:hover {
+#header a:hover h1{
 	text-decoration: none;
+	text-shadow: 1px 1px #000000;
+}
+
+#header a:hover p{
+	text-decoration: none;
+	text-shadow: 1px 1px #000000;
 }
 
 #header p{
 	font-size:16px;
 	margin-left:1px;
-	color:#000000;
+	color:#FFFFFF;
+	margin-top: -3px;
 	font-family:Georgia, "Times New Roman", Times, serif;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .navigation{
