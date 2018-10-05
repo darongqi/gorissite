@@ -9,6 +9,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	background:none;
 }
 
+
 ol, ul {
 	list-style-type:none;
 }
@@ -109,9 +110,12 @@ h6 {
 	/*  horizontal lines
 	******************************/
 	hr {border-bottom: 1px solid #C1C1CB;margin:5px 0;padding:0;height:2px;width:100%; margin-bottom:15px;}
-
+	#special_hr{
+		margin:2px;
+	}
 .clear {
 	clear:both;
+	padding-top:0;
 }
 
 .left {
@@ -140,8 +144,12 @@ h6 {
 }
 
 #header .top_banner{
-	background:url(../images/headerg.png) no-repeat left top;
-	height:175px;
+	background-image: url(../images/plato.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-size: 100%;
+	background-attachment: fixed;
+	height:140px;
 	padding:64px 95px 0 40px;
 	border:#496066 solid 1px;
 }
@@ -230,27 +238,66 @@ h6 {
 #page_content{
 	background:#EBEEEE;
 	padding:10px;
+	height:50%;
 }
 
-#page_content .right_section{
+#page_content .left_section{
 	/*width:735px;*/
 	float:left;
 	padding-left: 2%;
 	padding-right: 2%;
-	width:96%;
+	width: 96%;
+	clear: left;
 }
 
-#page_content .right_section .top_content{
+#page_content .right_header{
+	padding-left: 4%;
+	padding-right: 0.5%;
+}
+
+#page_content .right_section{
+	clear: right;
+	display:block;
+	position:relative;
+	float:right;
+	width:31%;
+	height: 135vh;
+	bottom:0;
+	border-left: 1px solid #C1C1CB;
+	word-wrap: break-word;
+	overflow-y: scroll;
+}
+
+#page_content .right-wrapper{
+	height:100%;
+	display:block;
+	position:relative;
+	width: 31%;
+}
+
+.top_widget{
+	height:45vh;
+	width:95%;
+	margin: 0 auto;
+	padding-bottom: 10px;
+}
+
+iframe{
+	overflow:scroll;
+	height: 1000px;
+}
+
+#page_content .left_section .top_content{
 	padding:15px 0 0px 0;
 }
 
-#page_content .right_section .top_content .column_one{
+#page_content .left_section .top_content .column_one{
 	width:300px;
 	float:left;
 	margin-bottom:20px;
 }
 
-#page_content .right_section .top_content .column_two{
+#page_content .left_section .top_content .column_two{
 	width:300px;
 	float:right;
 	margin-bottom:20px;

@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title></title></head><body><script src="jquery-3.3.1.min.js"></script>
+
+<style type="text/css">
+.fl{ float:left;}
+.slidepart{ width:100%; height:1000vh; overflow:hidden; position:relative;}
+.slidepart img {position:absolute; border:none;}
+.sl_paginationpart{ background:url(cssimages/slide_paginationbg.png) no-repeat left; width:auto; height:15px; display:block; position:absolute; right:0px; bottom:15px; padding:6px;}
+
+ul.slpagination{ margin:0px; padding:0px; list-style:none; font-family:arial; }
+ul.slpagination li{ margin:0px; padding:0px; list-style:none; float:left; }
+ul.slpagination li a.prev{background:url(cssimages/sl_prev.png) no-repeat; width:14px; height:15px; display:block; margin-top: 2px;}
+ul.slpagination li a.next{background:url(cssimages/sl_next.png) no-repeat; width:14px; height:15px; display:block; margin-top: 2px; }
+ul.slpagination li a.number{background:url(cssimages/sl_nobg.png) no-repeat; width:18px; height:18px ; display:block; text-align:center; margin:0px 3px; font-size:12px; font-weight:bold; color:#006aa6; text-decoration:none; cursor: pointer}
+ul.slpagination li a.select{background:url(cssimages/select_sl.png) no-repeat;color:#fff; }
+</style>
+
+<script type="text/javascript">
+var slo=null;
+var sola = Array();
+var prev = 0;
+var cur = 1;
+var timi=null
+var urls = new Array();
+urls[0] = "";
+urls[1] = "../Home.html";								//rot1
+urls[2] = "http://www.cell.com/neuron/abstract/S0896-6273%2815%2900128-2";	//rot5 //../papers/Kiani_Newsome_2015.pdf
+urls[3] = "../papers/Kiani_Shadlen_2009.pdf";				//rot6
+urls[4] = "http://www.cell.com/neuron/abstract/S0896-6273%2814%2901096-4";	//rot7 // ../papers/Kiani_Corthell_Shadlen_2014.pdf
+urls[5] = "../papers/Kiani_Newsome_2014.pdf";		//rot8
+urls[6] = "../papers/Purcell_Kiani_2016a.pdf";		//rot9
+urls[7] = "../papers/Purcell_Kiani_2016b.pdf"		//rot10
+urls[8] = "../papers/Waskom_Asfour_Kiani_2018.pdf"		//rot11
+//"../papers/Kiani_Hanks_Shadlen_2008.pdf";				//rot2
+//"../papers/okinawa_chapter2006.pdf";					//rot3
+//"../papers/Kiani_Esteky_Mirpour_Tanaka_2007.pdf";			//rot4
+
+
+$(document).ready(function() {
+    sol = document.getElementById('slidy').getElementsByTagName('img');
+    lnk = document.getElementById('the_link');
+    var sho = document.getElementById('slidya').getElementsByTagName('a');
+
+    for(var i=1;i<sho.length-1;i++)
+    	sola.push(sho[i]);
+
+    for(var i=1;i<sol.length;i++) {
+    	sol[i].style.display = 'none';
+    }
+
+    timi = window.setInterval('doslide()',5000);
+})
+function doslide()
+{
+    $(sol[prev]).fadeOut(1000);
+    $(sol[cur]).fadeIn(1000);
+    lnk.href = urls[cur+1];
+//    sola[prev].className = 'number'
+//    sola[cur].className = 'number select'
+
+    prev = cur++;
+    if(cur>sol.length-1) {
+        cur=0;
+        prev= sol.length-1;
+    }
+}
+function prevnext(mode)
+{
+    window.clearInterval(timi);timi=null;
+
+    if(mode) {
+        if(cur>sol.length-1) {
+            cur=0;
+            prev= sol.length-1;
+        }
+        doslide();
+    } else {
+        cur--;
+        prev--;
+
+        if(prev<0) {
+            cur=0;
+            prev= sol.length-1;
+        }
+        if(cur<0) {
+            cur=sol.length-1;
+            prev=cur-1 ;
+        }
+
+        $(sol[cur]).fadeOut(1000);
+        $(sol[prev]).fadeIn(1000);
+        lnk.href = urls[prev+1];
+//        sola[cur].className = 'number'
+//        sola[prev].className = 'number select'
+    }
+    timi = window.setInterval('doslide()',5000)
+}
+function showthis(aiyo)
+{
+    cur = aiyo
+    window.clearInterval(timi);timi=null;
+
+    $(sol[cur]).fadeIn(1000);
+    $(sol[prev]).fadeOut(1000);
+    lnk.href = urls[cur+1];
+//    sola[cur].className = 'number select'
+//    sola[prev].className = 'number'
+
+    prev=cur
+    ++cur;
+    if (cur>sol.length-1) {
+        cur=0;
+        prev= sol.length-1;
+    }
+    if (prev<0) {
+    	prev = sol.length-1;
+    }
+    timi = window.setInterval('doslide()',5000)
+}
+</script>
+
+<p>
+<div class="contents" style="width:100%; height:100%; margin:0px; overflow:hidden;">
+<div id="slidy" class="slidepart fl">
+<a href="index.html" target="_blank" id="the_link">
+<img src="images/rot1.jpg"><img src="images/rot5.jpg"><img src="images/rot6.jpg"><img src="images/rot7.jpg"><img src="images/rot8.jpg"><img src="images/rot9.jpg"><img src="images/rot10.jpg"><img src="images/rot11.jpg">
+</a>
+<div class="sl_paginationpart">
+    <ul id="slidya" class="slpagination">
+        <li><a nohref="" onclick="prevnext(0)" class="prev"></a></li>
+<!--
+        <li><a nohref="" onclick="showthis(0)" class="number select">1</a></li>
+        <li><a nohref="" onclick="showthis(1)" class="number ">2</a></li>
+        <li><a nohref="" onclick="showthis(2)" class="number ">3</a></li>
+        <li><a nohref="" onclick="showthis(3)" class="number ">4</a></li>
+        <li><a nohref="" onclick="showthis(4)" class="number ">5</a></li>
+	<li><a nohref="" onclick="showthis(5)" class="number ">6</a></li>
+	<li><a nohref="" onclick="showthis(6)" class="number ">7</a></li>
+	<li><a nohref="" onclick="showthis(7)" class="number ">8</a></li>
+-->
+        <li><a nohref="" onclick="prevnext(1)" class="next"></a></li>
+    </ul>
+</div>
+</div>
+</div>
+</p></body></html>
